@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Bluetrace">
+  <title>Bluetrace</title>
+  <rect x="2" y="2" width="60" height="60" rx="12" fill="#0F1F4D"/>
+  <path d="M 14 22 A 18 18 0 0 1 50 22" stroke="#3B82F6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <circle cx="14" cy="22" r="1.8" fill="#3B82F6"/>
+  <circle cx="50" cy="22" r="1.8" fill="#3B82F6"/>
+  <text x="13" y="52" font-family="'Arial Black','Helvetica Neue',Impact,system-ui,sans-serif" font-weight="900" font-size="34" fill="#3B82F6" letter-spacing="-2">B</text>
+  <text x="32" y="52" font-family="'Arial Black','Helvetica Neue',Impact,system-ui,sans-serif" font-weight="900" font-size="34" fill="#FFFFFF" letter-spacing="-2">T</text>
+</svg>

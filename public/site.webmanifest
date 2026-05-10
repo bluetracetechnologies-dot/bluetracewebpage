@@ -1,0 +1,13 @@
+{
+  "name": "Bluetrace Technologies",
+  "short_name": "Bluetrace",
+  "description": "Building Intelligent Digital Infrastructure.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#05070D",
+  "theme_color": "#05070D",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" },
+    { "src": "/logo-mark.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "maskable" }
+  ]
+}

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Bluetrace mark">
+  <title>Bluetrace</title>
+  <path d="M 38 78 A 65 65 0 0 1 162 78" stroke="#3B82F6" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <circle cx="38" cy="78" r="5" fill="#3B82F6"/>
+  <circle cx="162" cy="78" r="5" fill="#3B82F6"/>
+  <g stroke="#3B82F6" stroke-width="4" stroke-linecap="round" fill="none">
+    <path d="M 10 108 L 32 108 L 42 118 L 60 118"/>
+    <path d="M 10 128 L 60 128"/>
+    <path d="M 10 148 L 32 148 L 42 138 L 60 138"/>
+  </g>
+  <g fill="#3B82F6">
+    <circle cx="8" cy="108" r="4"/>
+    <circle cx="8" cy="128" r="4"/>
+    <circle cx="8" cy="148" r="4"/>
+  </g>
+  <g stroke="#3B82F6" stroke-width="4" stroke-linecap="round" fill="none">
+    <path d="M 122 180 L 122 196"/>
+    <path d="M 138 180 L 138 196"/>
+  </g>
+  <g fill="#3B82F6">
+    <circle cx="122" cy="196" r="4"/>
+    <circle cx="138" cy="196" r="4"/>
+  </g>
+  <text x="48" y="178" font-family="'Arial Black','Helvetica Neue',Impact,system-ui,sans-serif" font-weight="900" font-size="120" fill="#3B82F6" letter-spacing="-6">B</text>
+  <text x="113" y="178" font-family="'Arial Black','Helvetica Neue',Impact,system-ui,sans-serif" font-weight="900" font-size="120" fill="#0F1F4D" letter-spacing="-6">T</text>
+</svg>

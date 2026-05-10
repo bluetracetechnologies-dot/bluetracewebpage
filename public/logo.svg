@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 96" width="360" height="96" role="img" aria-label="Bluetrace Technologies">
+  <title>Bluetrace Technologies</title>
+  <g transform="translate(8,8)">
+    <path d="M 18 38 A 32 32 0 0 1 78 38" stroke="#3B82F6" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <circle cx="18" cy="38" r="2.6" fill="#3B82F6"/>
+    <circle cx="78" cy="38" r="2.6" fill="#3B82F6"/>
+    <g stroke="#3B82F6" stroke-width="2" stroke-linecap="round" fill="none">
+      <path d="M 0 52 L 11 52 L 16 57 L 26 57"/>
+      <path d="M 0 62 L 26 62"/>
+      <path d="M 0 72 L 11 72 L 16 67 L 26 67"/>
+    </g>
+    <g fill="#3B82F6">
+      <circle cx="0" cy="52" r="2"/>
+      <circle cx="0" cy="62" r="2"/>
+      <circle cx="0" cy="72" r="2"/>
+    </g>
+    <g stroke="#3B82F6" stroke-width="2" stroke-linecap="round" fill="none">
+      <path d="M 56 78 L 56 86"/>
+      <path d="M 64 78 L 64 86"/>
+    </g>
+    <g fill="#3B82F6">
+      <circle cx="56" cy="86" r="2"/>
+      <circle cx="64" cy="86" r="2"/>
+    </g>
+    <text x="22" y="76" font-family="'Arial Black','Helvetica Neue',Impact,system-ui,sans-serif" font-weight="900" font-size="58" fill="#3B82F6" letter-spacing="-3">B</text>
+    <text x="54" y="76" font-family="'Arial Black','Helvetica Neue',Impact,system-ui,sans-serif" font-weight="900" font-size="58" fill="#FFFFFF" letter-spacing="-3">T</text>
+  </g>
+  <g transform="translate(108,0)">
+    <text x="0" y="48" font-family="'Space Grotesk','Inter',system-ui,sans-serif" font-size="32" font-weight="800" letter-spacing="-1">
+      <tspan fill="#3B82F6">Blue</tspan><tspan fill="#FFFFFF">Trace</tspan>
+    </text>
+    <text x="2" y="68" font-family="'Inter',system-ui,sans-serif" font-size="10" font-weight="600" fill="#94A3B8" letter-spacing="4.5">TECHNOLOGIES</text>
+    <text x="2" y="86" font-family="'Inter',system-ui,sans-serif" font-size="9" font-weight="500" fill="#3B82F6" letter-spacing="2.5">EMBEDDED &#183; IoT &#183; AI</text>
+  </g>
+</svg>
