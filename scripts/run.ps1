@@ -1,6 +1,6 @@
 param(
   [Parameter(Position = 0)]
-  [ValidateSet("dev", "lan", "build", "preview", "deploy", "deploy:preview", "ip", "install", "setup-github", "push", "help")]
+  [ValidateSet("dev", "lan", "build", "preview", "deploy", "deploy:preview", "ip", "install", "install-git", "setup-github", "push", "smoke", "help")]
   [string]$Action = "help",
 
   [Parameter(Position = 1)]
@@ -13,6 +13,7 @@ $GIT_BRANCH = "main"
 $ErrorActionPreference = "Stop"
 $root    = Split-Path -Parent $PSScriptRoot
 $nodeDir = Join-Path $root ".tools\node-v22.11.0-win-x64"
+$gitDir  = Join-Path $root ".tools\mingit"
 $npm     = Join-Path $nodeDir "npm.cmd"
 $npx     = Join-Path $nodeDir "npx.cmd"
 
@@ -22,6 +23,9 @@ if (-not (Test-Path $nodeDir)) {
 }
 
 $env:Path = "$nodeDir;$env:Path"
+if (Test-Path (Join-Path $gitDir "cmd\git.exe")) {
+  $env:Path = "$gitDir\cmd;$env:Path"
+}
 Set-Location $root
 
 function Show-LAN {
@@ -67,6 +71,8 @@ function Show-Help {
   Write-Host "    .\scripts\run.ps1 deploy:preview   " -NoNewline; Write-Host "→ ship a preview URL only" -ForegroundColor DarkGray
   Write-Host "    .\scripts\run.ps1 ip               " -NoNewline; Write-Host "→ print this machine's LAN IP(s)" -ForegroundColor DarkGray
   Write-Host "    .\scripts\run.ps1 install          " -NoNewline; Write-Host "→ npm install (after pulling new deps)" -ForegroundColor DarkGray
+  Write-Host "    .\scripts\run.ps1 install-git      " -NoNewline; Write-Host "→ download MinGit into .tools\mingit (no admin)" -ForegroundColor DarkGray
+  Write-Host "    .\scripts\run.ps1 smoke            " -NoNewline; Write-Host "→ HTTP-test every route on localhost:3000" -ForegroundColor DarkGray
   Write-Host ""
 }
 
@@ -75,8 +81,9 @@ function Require-Git {
   if (-not $g) {
     Write-Host ""
     Write-Host "  ✗ git is not installed or not on PATH." -ForegroundColor Red
-    Write-Host "    Install Git for Windows: https://git-scm.com/download/win" -ForegroundColor Yellow
-    Write-Host "    Run the installer with defaults, then re-open PowerShell." -ForegroundColor DarkGray
+    Write-Host "    Portable Git can be installed into .tools\mingit by running:" -ForegroundColor Yellow
+    Write-Host "      .\scripts\install-git-portable.ps1" -ForegroundColor Cyan
+    Write-Host "    Or install Git for Windows globally: https://git-scm.com/download/win" -ForegroundColor DarkGray
     Write-Host ""
     exit 1
   }
@@ -88,6 +95,14 @@ switch ($Action) {
 
   "install" {
     & $npm install
+  }
+
+  "install-git" {
+    & (Join-Path $PSScriptRoot "install-git-portable.ps1")
+  }
+
+  "smoke" {
+    & (Join-Path $PSScriptRoot "smoke.ps1")
   }
 
   "dev" {
@@ -185,8 +200,40 @@ switch ($Action) {
     }
 
     Write-Host "→ Pushing to origin/$GIT_BRANCH..." -ForegroundColor Cyan
-    Write-Host "  First push will prompt GitHub auth in your browser." -ForegroundColor DarkGray
-    git push -u origin $GIT_BRANCH
+
+    $usingMinGit = Test-Path (Join-Path $gitDir "cmd\git.exe")
+    $hasGcm      = $false
+    if ($usingMinGit) {
+      $hasGcm = Test-Path (Join-Path $gitDir "mingw64\libexec\git-core\git-credential-manager.exe")
+    }
+
+    if ($usingMinGit -and -not $hasGcm) {
+      Write-Host ""
+      Write-Host "  ⚠ Portable MinGit has no credential manager." -ForegroundColor Yellow
+      Write-Host "    GitHub push needs a Personal Access Token. Two options:" -ForegroundColor Yellow
+      Write-Host ""
+      Write-Host "    A) Token in URL (one-time, quickest):" -ForegroundColor Cyan
+      Write-Host "       1. Create a token at https://github.com/settings/tokens" -ForegroundColor DarkGray
+      Write-Host "          scopes: repo  (classic) — or 'Contents: read/write' (fine-grained)" -ForegroundColor DarkGray
+      Write-Host "       2. Re-run with the token in env:" -ForegroundColor DarkGray
+      Write-Host "          `$env:GH_TOKEN = 'ghp_xxx'; .\scripts\run.ps1 push 'msg'" -ForegroundColor Cyan
+      Write-Host ""
+      Write-Host "    B) Install full Git for Windows (one-time, persistent auth):" -ForegroundColor Cyan
+      Write-Host "       https://git-scm.com/download/win  — re-open PowerShell after install." -ForegroundColor DarkGray
+      Write-Host ""
+
+      if ($env:GH_TOKEN) {
+        $tokenUrl = $GIT_REMOTE -replace "^https://", "https://x-access-token:$($env:GH_TOKEN)@"
+        Write-Host "→ Pushing with GH_TOKEN..." -ForegroundColor Cyan
+        git push -u $tokenUrl $GIT_BRANCH
+      } else {
+        Write-Host "  Skipping push (no GH_TOKEN set)." -ForegroundColor DarkGray
+        exit 1
+      }
+    } else {
+      Write-Host "  First push will prompt GitHub auth in your browser." -ForegroundColor DarkGray
+      git push -u origin $GIT_BRANCH
+    }
 
     if ($LASTEXITCODE -eq 0) {
       Write-Host ""
