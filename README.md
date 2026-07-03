@@ -1,167 +1,135 @@
-# Bluetrace Technologies — Official Website
+# Bluetrace Technologies Website
 
-> **Tagline:** Building Intelligent Digital Infrastructure
-> **Domain:** [bluetrace.tech](https://bluetrace.tech)
-> **Stack:** Next.js 15 · React 19 · TypeScript · Tailwind CSS · Framer Motion
+Official website source code for Bluetrace Technologies Private Limited.
 
-A modern, premium, responsive landing site for **Bluetrace Technologies Private Limited** — featuring a futuristic AI/SaaS aesthetic, glassmorphism, animated gradients, particle background, dark-by-default theme, and production-ready SEO + deployment configs.
+## Project Overview
 
----
+This project is a Next.js website positioned for lead generation across:
 
-## ✨ Features
+- Embedded systems and firmware development
+- PCB design and review
+- IoT device-to-cloud solutions
+- BLE / ESP32 / STM32 / nRF engineering
+- AI automation and SaaS delivery
+- Web, mobile, and cloud applications
+- School, hospital, and business automation
 
-- 🎨 **Premium futuristic UI** — glass cards, floating gradients, animated grid, particle field
-- ⚡ **Next.js App Router** with React Server Components
-- 🧩 **Reusable component library** (`/components`, `/components/sections`)
-- 🔍 **SEO-ready** — full metadata, OpenGraph, Twitter cards, JSON-LD, dynamic OG image, sitemap & robots
-- 🌗 **Dark mode by default** with electric blue / cyan / purple palette
-- 📱 **Mobile-first responsive design** + accessible focus states + skip-to-content
-- 🪄 **Framer Motion** animations (reveals, layout transitions, hover micro-interactions)
-- 🧱 **Production hardened** — security headers, compression, font optimization
-- ☁️ **Deploy-ready** for **Vercel**, **Cloudflare Pages**, and **Netlify**
+Official website: https://bluetrace.tech
 
----
+Official contact:
 
-## 📁 Project Structure
+- Email: rahim@bluetrace.tech
+- Phone/WhatsApp: +91 9462225303, +91 9823797953
 
-```
-bluetrace-pages/
-├── app/
-│   ├── layout.tsx              # Root layout (SEO, fonts, JSON-LD, navbar/footer)
-│   ├── page.tsx                # Home
-│   ├── globals.css             # Tailwind + custom design tokens
-│   ├── loading.tsx             # Global loading animation
-│   ├── not-found.tsx           # 404 page
-│   ├── opengraph-image.tsx     # Dynamic OG image (edge)
-│   ├── sitemap.ts              # /sitemap.xml
-│   ├── robots.ts               # /robots.txt
-│   ├── about/page.tsx
-│   ├── services/page.tsx
-│   ├── products/page.tsx
-│   ├── contact/page.tsx
-│   ├── careers/page.tsx
-│   ├── privacy/page.tsx
-│   └── terms/page.tsx
-├── components/
-│   ├── Navbar.tsx
-│   ├── Footer.tsx
-│   ├── Logo.tsx
-│   ├── GlassCard.tsx
-│   ├── ParticleField.tsx
-│   ├── FloatingGradients.tsx
-│   ├── SectionHeading.tsx
-│   ├── PageHeader.tsx
-│   ├── MotionReveal.tsx
-│   ├── LegalContent.tsx
-│   └── sections/               # Home page sections
-│       ├── Hero.tsx
-│       ├── ServicesOverview.tsx
-│       ├── FeaturedProducts.tsx
-│       ├── Vision.tsx
-│       ├── TechStack.tsx
-│       ├── WhyChooseUs.tsx
-│       └── ContactCTA.tsx
-├── lib/
-│   ├── site.ts                 # Site config (name, urls, social, nav, emails)
-│   ├── services.ts             # Services data
-│   └── products.ts             # Products data
-├── public/
-│   ├── favicon.svg
-│   ├── logo.svg
-│   └── site.webmanifest
-├── tailwind.config.ts
-├── next.config.mjs
-├── tsconfig.json
-├── vercel.json
-└── netlify.toml
-```
+## Versioning
 
----
+- v1.0: Baseline stable website (tagged before major upgrade)
+- v2.0: Lead-generation website upgrade in progress on lead-generation-v2 branch
 
-## 🚀 Getting Started
+Branch strategy:
 
-### Prerequisites
-- **Node.js** ≥ 18.18 (recommended: **20 LTS**)
-- **npm** ≥ 9 (or pnpm / yarn)
+- main: stable production
+- lead-generation-v2: active major upgrade branch
 
-### 1. Install dependencies
+## Tech Stack
+
+- Next.js 15 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+
+## Setup Instructions
+
+1. Install dependencies:
+
 ```bash
 npm install
 ```
 
-### 2. Run the dev server
+2. Start development server:
+
 ```bash
 npm run dev
 ```
-Open **[http://localhost:3000](http://localhost:3000)**.
 
-### 3. Type-check & lint
-```bash
-npm run type-check
-npm run lint
-```
+3. Open in browser:
 
-### 4. Build & start production
+- http://localhost:3000
+
+## Build Instructions
+
+Run production build:
+
 ```bash
 npm run build
+```
+
+Run production server locally:
+
+```bash
 npm start
 ```
 
----
+Optional checks:
 
-## ☁️ Deployment
-
-### Vercel (recommended)
 ```bash
-npm i -g vercel
-vercel        # first-time deploy
-vercel --prod # production
+npm run lint
+npm run type-check
 ```
-Or push to GitHub and import the repo in [vercel.com/new](https://vercel.com/new). Zero config — `vercel.json` is included.
 
-### Cloudflare Pages
+## Lead Form Configuration
+
+The inquiry form posts to /api/inquiry.
+
+To persist leads to a CRM/webhook, configure this environment variable:
+
+- BLUETRACE_LEAD_WEBHOOK_URL
+
+Without this variable, the API still accepts submissions but only returns a confirmation response.
+
+## Deployment Instructions
+
+### Vercel
+
+1. Push branch to GitHub.
+2. Connect repository in Vercel or trigger redeploy.
+3. Set required environment variables (if used).
+4. Deploy:
+
 ```bash
-npm i -g wrangler
-# In Cloudflare Pages → Create Project → Connect Git
-# Build command:    npm run build
-# Build output:     .next
-# Framework preset: Next.js
+npm run deploy
 ```
-For full SSR support on Cloudflare, use the **Next on Pages** adapter:
+
+or via Vercel UI redeploy.
+
+### Netlify / Other
+
+Use standard Next.js production build command:
+
+- Build: npm run build
+- Start: npm start
+
+## Rollback Instructions
+
+If v2.0 has issues:
+
+1. Checkout main or the stable commit.
+2. Restore baseline tag:
+
 ```bash
-npm i -D @cloudflare/next-on-pages
-npx @cloudflare/next-on-pages
+git checkout v1.0
 ```
-Then set the build command to `npx @cloudflare/next-on-pages` and output to `.vercel/output/static`.
 
-### Netlify
+3. Redeploy stable version from tag or main.
+4. Continue fixes in lead-generation-v2.
+
+Suggested recovery flow:
+
 ```bash
-npm i -g netlify-cli
-netlify deploy             # preview
-netlify deploy --prod      # production
+git checkout main
+git checkout v1.0
+# redeploy from tag or switch main to a known stable commit through a standard revert/cherry-pick workflow
 ```
-The included `netlify.toml` configures Node 20 and the official `@netlify/plugin-nextjs`.
 
----
-
-## 🎨 Brand & Theming
-
-Edit colors and tokens in **`tailwind.config.ts`** and **`app/globals.css`**.
-Site-wide content (name, emails, nav, social links) lives in **`lib/site.ts`** — change once, applied everywhere.
-
-| Token              | Value     |
-| ------------------ | --------- |
-| `brand.electric`   | `#1E90FF` |
-| `brand.cyan`       | `#22D3EE` |
-| `brand.purple`     | `#8B5CF6` |
-| `brand.ink`        | `#05070D` |
-
----
-
-## 📬 Contact
-
-- General — [rahim@bluetrace.tech](mailto:rahim@bluetrace.tech)
-- Sales — [sales@bluetrace.tech](mailto:sales@bluetrace.tech)
-- Support — [support@bluetrace.tech](mailto:support@bluetrace.tech)
-
-© Bluetrace Technologies Private Limited. All rights reserved.
+If you do not want to rewrite main history, redeploy directly from the v1.0 tag in your hosting platform.
