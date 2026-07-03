@@ -43,9 +43,9 @@ export const metadata: Metadata = {
   category: "technology",
   alternates: { canonical: "/" },
   icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: [{ url: "/logo-actual.png", type: "image/png", sizes: "1254x1254" }],
+    shortcut: "/logo-actual.png",
+    apple: "/logo-actual.png",
   },
   manifest: "/site.webmanifest",
   openGraph: {
@@ -80,7 +80,7 @@ const orgJsonLd = {
   name: siteConfig.legalName,
   alternateName: siteConfig.name,
   url: siteConfig.url,
-  logo: `${siteConfig.url}/logo.svg`,
+  logo: `${siteConfig.url}/logo-actual.png`,
   description: siteConfig.description,
   foundingDate: siteConfig.legal.incorporationDate,
   founder: {

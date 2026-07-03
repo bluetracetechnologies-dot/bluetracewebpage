@@ -7,7 +7,7 @@
   "background_color": "#05070D",
   "theme_color": "#05070D",
   "icons": [
-    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" },
-    { "src": "/logo-mark.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "maskable" }
+    { "src": "/logo-actual.png", "type": "image/png", "sizes": "1254x1254", "purpose": "any" },
+    { "src": "/logo-actual.png", "type": "image/png", "sizes": "1254x1254", "purpose": "maskable" }
   ]
 }
