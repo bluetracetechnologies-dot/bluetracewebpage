@@ -74,7 +74,7 @@ export default async function OGImage() {
               maxWidth: 1000,
             }}
           >
-            Building{" "}
+            Embedded, IoT and PCB Engineering for{" "}
             <span
               style={{
                 backgroundImage:
@@ -83,12 +83,11 @@ export default async function OGImage() {
                 color: "transparent",
               }}
             >
-              Intelligent Digital
-            </span>{" "}
-            Infrastructure
+              Smart Connected Products
+            </span>
           </div>
           <div style={{ fontSize: 26, color: "rgba(255,255,255,0.7)" }}>
-            AI · Embedded · IoT · Cloud · SaaS
+            Firmware · PCB · IoT · Automation · SaaS
           </div>
         </div>
 

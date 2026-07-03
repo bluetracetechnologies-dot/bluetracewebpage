@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { GlassCard } from "@/components/GlassCard";
 import { MotionReveal } from "@/components/MotionReveal";
@@ -8,7 +9,7 @@ import { services } from "@/lib/services";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "AI solutions, embedded systems, IoT platforms, SaaS development, cloud infrastructure and automation — engineered by Bluetrace Technologies.",
+    "Embedded firmware development, PCB design review, IoT device-to-cloud solutions, BLE engineering, AI automation, and software delivery by Bluetrace Technologies.",
   alternates: { canonical: "/services" },
 };
 
@@ -19,11 +20,11 @@ export default function ServicesPage() {
         eyebrow="Services"
         title={
           <>
-            Engineering services across the{" "}
-            <span className="gradient-text">modern stack</span>
+            Embedded, IoT, PCB and
+            <span className="gradient-text"> automation services</span>
           </>
         }
-        description="From early-stage prototypes to enterprise rollouts — Bluetrace partners with teams to design, build and operate intelligent software systems."
+        description="Each service is structured with the problem we solve, the technologies we use, and the practical deliverables you receive."
       />
 
       <section className="section pt-0">
@@ -43,14 +44,38 @@ export default function ServicesPage() {
                     <p className="mt-2 text-sm leading-relaxed text-white/65">
                       {s.description}
                     </p>
-                    <ul className="mt-5 space-y-1.5 text-xs text-white/60">
-                      {s.highlights.map((h) => (
+                    <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-white/45">
+                      Problem solved
+                    </p>
+                    <p className="mt-2 text-sm text-white/70">{s.problemSolved}</p>
+
+                    <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-white/45">
+                      Technologies
+                    </p>
+                    <ul className="mt-2 space-y-1.5 text-xs text-white/60">
+                      {s.technologies.map((h) => (
                         <li key={h} className="flex items-center gap-2">
                           <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan" />
                           {h}
                         </li>
                       ))}
                     </ul>
+
+                    <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-white/45">
+                      Deliverables
+                    </p>
+                    <ul className="mt-2 space-y-1.5 text-xs text-white/60">
+                      {s.deliverables.map((item) => (
+                        <li key={item} className="flex items-center gap-2">
+                          <span className="h-1.5 w-1.5 rounded-full bg-brand-electric" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <Link href="/contact" className="btn-ghost mt-5 w-full justify-center">
+                      {s.ctaLabel}
+                    </Link>
                   </GlassCard>
                 </MotionReveal>
               );

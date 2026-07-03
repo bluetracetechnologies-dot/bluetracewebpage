@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, MessageCircle, Sparkles } from "lucide-react";
 import { ParticleField } from "@/components/ParticleField";
 import { FloatingGradients } from "@/components/FloatingGradients";
 
@@ -23,7 +23,7 @@ export function Hero() {
           >
             <span className="eyebrow">
               <Sparkles className="h-3.5 w-3.5 text-brand-cyan" />
-              Specialized Embedded &amp; IoT Studio
+              Bluetrace Technologies Private Limited
             </span>
           </motion.div>
 
@@ -33,9 +33,8 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.05 }}
             className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight text-balance md:text-7xl"
           >
-            Building{" "}
-            <span className="gradient-text">Intelligent Digital</span>{" "}
-            Infrastructure
+            Embedded, IoT &amp; PCB Engineering for{" "}
+            <span className="gradient-text">Smart Connected Products</span>
           </motion.h1>
 
           <motion.p
@@ -44,9 +43,9 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="mx-auto mt-6 max-w-2xl text-balance text-base text-white/70 md:text-lg"
           >
-            We design and engineer AI platforms, embedded electronics, IoT
-            infrastructure, and scalable digital products for modern businesses
-            and startups — from prototype to planet-scale.
+            We help startups, schools, hospitals, and businesses design,
+            prototype, debug, and deploy firmware, PCB, IoT, automation, and
+            software systems.
           </motion.p>
 
           <motion.div
@@ -56,11 +55,20 @@ export function Hero() {
             className="mt-10 flex flex-wrap items-center justify-center gap-3"
           >
             <Link href="/contact" className="btn-primary">
-              Contact Us <ArrowRight className="h-4 w-4" />
+              Book Free Technical Review <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link href="/products" className="btn-ghost">
-              Explore Products
+            <Link href="/contact" className="btn-ghost">
+              Request Project Quote
             </Link>
+            <a
+              href="https://wa.me/919462225303"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-ghost"
+            >
+              <MessageCircle className="h-4 w-4" />
+              WhatsApp Bluetrace
+            </a>
           </motion.div>
 
           <motion.div
@@ -70,10 +78,10 @@ export function Hero() {
             className="mx-auto mt-16 grid max-w-3xl grid-cols-2 gap-4 md:grid-cols-4"
           >
             {[
-              { k: "AI", v: "Production" },
-              { k: "Embedded", v: "PCB-ready" },
-              { k: "IoT", v: "Low-power" },
-              { k: "Cloud", v: "Edge-native" },
+              { k: "Firmware", v: "Debug to deployment" },
+              { k: "PCB", v: "Review and bring-up" },
+              { k: "IoT", v: "Device to cloud" },
+              { k: "Automation", v: "Schools to hospitals" },
             ].map((s) => (
               <div
                 key={s.k}
