@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { GlassCard } from "@/components/GlassCard";
 import { MotionReveal } from "@/components/MotionReveal";
+import { EngineeringPackages } from "@/components/sections/EngineeringPackages";
 import { ContactCTA } from "@/components/sections/ContactCTA";
 import { services } from "@/lib/services";
 
@@ -84,6 +85,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <EngineeringPackages />
       <ContactCTA />
     </>
   );

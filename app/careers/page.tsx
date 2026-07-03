@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Careers",
   description:
-    "Join Bluetrace Technologies. We hire senior engineers, designers and AI researchers building the next generation of digital infrastructure.",
+    "Careers at Bluetrace Technologies. Future openings are shared here as the team grows across embedded systems, IoT, automation, and software delivery.",
   alternates: { canonical: "/careers" },
 };
 
@@ -43,10 +43,10 @@ export default function CareersPage() {
         eyebrow="Careers"
         title={
           <>
-            Build the <span className="gradient-text">infrastructure</span> of what comes next
+            Future <span className="gradient-text">openings at Bluetrace</span>
           </>
         }
-        description="We are growing a small, senior team across engineering, AI and design. Roles below are placeholders — reach out anytime."
+        description="We are not publishing active hiring claims here. The roles below are future-opening placeholders for people interested in Bluetrace's engineering direction."
       />
 
       <section className="section pt-0">
@@ -80,7 +80,7 @@ export default function CareersPage() {
                 Don&apos;t see your role?
               </h2>
               <p className="mt-3 max-w-2xl text-white/65">
-                We&apos;re always open to meeting exceptional engineers, researchers and designers. Send us a note with what you want to build.
+                If you want to be considered for future openings, send a short introduction and your area of expertise. We&apos;ll keep it on record for later discussions.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link href={`mailto:${siteConfig.emails.primary}?subject=Careers`} className="btn-primary">

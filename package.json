@@ -1,8 +1,8 @@
 {
   "name": "bluetrace-pages",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "Official website of Bluetrace Technologies Private Limited — Building Intelligent Digital Infrastructure.",
+  "description": "Official website of Bluetrace Technologies Private Limited — Embedded, IoT and PCB engineering for smart connected products.",
   "scripts": {
     "dev": "next dev",
     "dev:network": "next dev -H 0.0.0.0",
