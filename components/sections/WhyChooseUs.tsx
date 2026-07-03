@@ -7,33 +7,33 @@ import { MotionReveal } from "@/components/MotionReveal";
 const reasons = [
   {
     icon: Zap,
-    title: "Fast prototyping",
+    title: "Practical engineering approach",
     body: "From spec to working bench prototype in days — schematic, breadboard or dev-board build, firmware sketch and bring-up handled in-house.",
   },
   {
     icon: Cpu,
-    title: "Manufacturing-ready PCB",
-    body: "DFM-checked schematics, Gerbers, BOM and assembly drawings — boards engineered to be ordered, populated and shipped without rework.",
+    title: "Hardware + firmware + software capability",
+    body: "One team can review hardware, implement firmware, and deliver cloud or dashboard layers so execution does not fragment across vendors.",
   },
   {
     icon: Lock,
-    title: "NDA-safe development",
-    body: "Mutual NDAs, isolated repos, signed builds and IP-clean handover. Your designs and firmware remain yours, fully transferred on closeout.",
+    title: "Startup-friendly execution",
+    body: "We work with prototype realities, budget limits, and evolving requirements while keeping delivery disciplined and transparent.",
   },
   {
     icon: ShieldCheck,
-    title: "Enterprise-grade engineering",
-    body: "Security, observability and resilience are first-class on every cloud, SaaS and AI platform we ship — not afterthoughts.",
+    title: "Prototype to deployment support",
+    body: "From architecture and board bring-up to deployment and handover, we keep projects moving through each stage with practical milestones.",
   },
   {
     icon: Users,
-    title: "Senior-only delivery",
-    body: "Engineers, designers and architects who have shipped at scale own your project end-to-end — no juniors hidden behind a brand.",
+    title: "International and local client readiness",
+    body: "Our communication and process fit global startups as well as Indian schools, hospitals, and local businesses.",
   },
   {
     icon: LineChart,
-    title: "Built to scale",
-    body: "Systems designed for 100x — load tested, instrumented and cost-aware from day one, whether on-device or in the cloud.",
+    title: "Outcome-focused planning",
+    body: "We map each engagement to clear deliverables, risk checkpoints, and technical next steps so decisions are fast and informed.",
   },
 ];
 
@@ -45,11 +45,10 @@ export function WhyChooseUs() {
           eyebrow="Why Bluetrace"
           title={
             <>
-              The advantages of working with{" "}
-              <span className="gradient-text">our team</span>
+              Why clients choose <span className="gradient-text">Bluetrace</span>
             </>
           }
-          description="We are intentionally small, deeply technical and built to deliver outcomes — not deliverables."
+          description="Trusted engineering delivery for embedded products, IoT systems, and automation initiatives."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">

@@ -14,14 +14,13 @@ export function ServicesOverview() {
     <section id="services" className="section">
       <div className="container-page">
         <SectionHeading
-          eyebrow="What we do"
+          eyebrow="Core Services"
           title={
             <>
-              Engineering services for{" "}
-              <span className="gradient-text">ambitious teams</span>
+              Engineering services for <span className="gradient-text">products and automation</span>
             </>
           }
-          description="From AI platforms to cloud infrastructure — we ship software that performs at scale and looks the part."
+          description="Hardware, firmware, IoT, AI automation, and software delivery organized around clear problems, practical technologies, and real deliverables."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -38,11 +37,28 @@ export function ServicesOverview() {
                       <h3 className="font-display text-lg font-semibold text-white">
                         {s.title}
                       </h3>
-                      <p className="mt-2 text-sm leading-relaxed text-white/65">
+                      <p className="mt-2 text-sm leading-relaxed text-white/70">
                         {s.description}
                       </p>
                     </div>
                   </div>
+                  <p className="mt-4 text-xs uppercase tracking-[0.16em] text-white/45">
+                    Problem solved
+                  </p>
+                  <p className="mt-2 text-sm text-white/65">{s.problemSolved}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {s.technologies.slice(0, 3).map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[11px] text-white/70"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                  <Link href="/contact" className="btn-ghost mt-5 w-full justify-center">
+                    {s.ctaLabel}
+                  </Link>
                 </GlassCard>
               </MotionReveal>
             );

@@ -5,28 +5,28 @@ import { MotionReveal } from "@/components/MotionReveal";
 
 const groups: { title: string; items: string[] }[] = [
   {
-    title: "Frontend",
-    items: ["Next.js", "React", "TypeScript", "Tailwind", "Framer Motion"],
+    title: "Embedded Platforms",
+    items: ["STM32", "ESP32", "nRF52 / nRF52840", "Arduino", "Bare-metal C", "FreeRTOS"],
   },
   {
-    title: "Backend",
-    items: ["Node.js", "Go", "Python", "FastAPI", "GraphQL", "gRPC"],
+    title: "Connectivity and Protocols",
+    items: ["BLE", "MQTT", "UART", "SPI", "I2C", "OTA", "LoRaWAN"],
   },
   {
-    title: "AI / ML",
-    items: ["PyTorch", "LangChain", "OpenAI", "Anthropic", "Vector DBs", "vLLM"],
+    title: "Firmware and RTOS",
+    items: ["FreeRTOS", "Zephyr", "Nordic SDK", "Board bring-up", "Sensor integration", "Low-power tuning"],
   },
   {
-    title: "Cloud & Data",
-    items: ["AWS", "GCP", "Azure", "Kubernetes", "Terraform", "Postgres", "Redis"],
+    title: "Cloud and Backend",
+    items: ["Python", "Flask", "FastAPI", "Node.js", "Cloud dashboards", "SQLite", "PostgreSQL"],
   },
   {
-    title: "Embedded & IoT",
-    items: ["ESP32", "STM32", "FreeRTOS", "Zephyr", "MQTT", "LoRaWAN", "BLE"],
+    title: "Web and Mobile",
+    items: ["React", "Next.js", "Admin panels", "API integrations", "Business websites", "Web apps"],
   },
   {
-    title: "DevEx & Quality",
-    items: ["GitHub Actions", "Vercel", "Cloudflare", "Sentry", "OpenTelemetry"],
+    title: "Automation and AI",
+    items: ["AI workflow automation", "Business dashboards", "Internal tools", "AI assistants", "Notification workflows"],
   },
 ];
 
@@ -35,13 +35,13 @@ export function TechStack() {
     <section className="section">
       <div className="container-page">
         <SectionHeading
-          eyebrow="Technology stack"
+          eyebrow="Technologies We Work With"
           title={
             <>
-              Modern, opinionated, <span className="gradient-text">production-tested</span>
+              Practical stack for <span className="gradient-text">reliable delivery</span>
             </>
           }
-          description="A pragmatic stack chosen for reliability, developer velocity and long-term maintainability."
+          description="We choose technologies based on product reliability, maintainability, and deployment readiness, not trend-chasing."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
