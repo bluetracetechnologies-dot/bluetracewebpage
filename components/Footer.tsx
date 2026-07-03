@@ -16,6 +16,7 @@ const linkGroups = [
     title: "Solutions",
     links: [
       { label: "Services", href: "/services" },
+      { label: "Portfolio", href: "/portfolio" },
       { label: "Products", href: "/products" },
     ],
   },
@@ -127,13 +128,18 @@ export function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a className="hover:text-white" href={`mailto:${siteConfig.emails.support}`}>
-                    {siteConfig.emails.support}
+                  <a className="hover:text-white" href="tel:+919462225303">
+                    +91 9462225303
                   </a>
                 </li>
                 <li>
-                  <a className="hover:text-white" href={`mailto:${siteConfig.emails.sales}`}>
-                    {siteConfig.emails.sales}
+                  <a className="hover:text-white" href="tel:+919823797953">
+                    +91 9823797953
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-white" href="https://wa.me/919462225303" target="_blank" rel="noreferrer">
+                    WhatsApp Bluetrace
                   </a>
                 </li>
               </ul>
@@ -148,11 +154,19 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="mt-3 flex flex-col gap-1 text-[11px] text-white/40 md:flex-row md:flex-wrap md:items-center md:gap-x-4">
-          <span>CIN: <span className="font-mono text-white/60">{siteConfig.legal.cin}</span></span>
-          <span>PAN: <span className="font-mono text-white/60">{siteConfig.legal.pan}</span></span>
-          <span>TAN: <span className="font-mono text-white/60">{siteConfig.legal.tan}</span></span>
-        </div>
+        {(siteConfig.legal.cin || siteConfig.legal.pan || siteConfig.legal.tan) && (
+          <div className="mt-3 flex flex-col gap-1 text-[11px] text-white/40 md:flex-row md:flex-wrap md:items-center md:gap-x-4">
+            {siteConfig.legal.cin ? (
+              <span>CIN: <span className="font-mono text-white/60">{siteConfig.legal.cin}</span></span>
+            ) : null}
+            {siteConfig.legal.pan ? (
+              <span>PAN: <span className="font-mono text-white/60">{siteConfig.legal.pan}</span></span>
+            ) : null}
+            {siteConfig.legal.tan ? (
+              <span>TAN: <span className="font-mono text-white/60">{siteConfig.legal.tan}</span></span>
+            ) : null}
+          </div>
+        )}
       </div>
     </footer>
   );

@@ -66,7 +66,7 @@ export function Navbar() {
         <div className="hidden items-center gap-2 md:flex">
           <ThemeToggle />
           <Link href="/contact" className="btn-primary text-xs">
-            Get in touch
+            Book Free Technical Review
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -114,7 +114,7 @@ export function Navbar() {
                 );
               })}
               <Link href="/contact" className="btn-primary mt-2 w-full">
-                Get in touch <ArrowRight className="h-4 w-4" />
+                Book Free Technical Review <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </motion.div>

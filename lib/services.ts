@@ -1,15 +1,11 @@
 import {
-  Brain,
+  BrainCircuit,
   CircuitBoard,
-  Cloud,
-  Code2,
+  Code,
   Cpu,
-  Layers,
-  Plug,
+  Hospital,
   Radio,
-  Smartphone,
-  Sparkles,
-  Workflow,
+  Wrench,
   type LucideIcon,
 } from "lucide-react";
 
@@ -19,87 +15,102 @@ export type Service = {
   description: string;
   icon: LucideIcon;
   highlights: string[];
+  problemSolved: string;
+  technologies: string[];
+  deliverables: string[];
+  ctaLabel: string;
 };
 
 export const services: Service[] = [
   {
-    slug: "ai-solutions",
-    title: "AI Solutions",
+    slug: "embedded-firmware-development",
+    title: "Embedded Firmware Development",
     description:
-      "Production-grade AI systems — from LLM applications and RAG pipelines to computer vision and predictive analytics.",
-    icon: Brain,
-    highlights: ["LLM apps & agents", "RAG pipelines", "ML model deployment"],
-  },
-  {
-    slug: "embedded-systems",
-    title: "Embedded Systems",
-    description:
-      "Custom firmware, board bring-up, and manufacturing-ready PCB design for medical, automotive and industrial-grade electronics.",
+      "Production-grade embedded firmware for connected products across board bring-up, peripherals, communication, and robust runtime behavior.",
     icon: Cpu,
-    highlights: ["PCB design & bring-up", "Custom firmware (RTOS / bare-metal)", "NDA-safe development"],
+    highlights: ["STM32, ESP32, nRF52", "FreeRTOS, bare-metal", "UART, SPI, I2C, ADC, GPIO"],
+    problemSolved:
+      "Fix unstable prototypes, missed milestones, and bring-up delays by delivering firmware that is testable and hardware-aware.",
+    technologies: ["STM32", "ESP32", "nRF52/nRF52840", "FreeRTOS", "Zephyr/Nordic SDK", "UART/SPI/I2C"],
+    deliverables: ["Firmware architecture", "Board bring-up logs", "Driver + interface modules", "Debug and validation notes"],
+    ctaLabel: "Book Free Technical Review",
   },
   {
-    slug: "iot-platforms",
-    title: "IoT Platforms",
+    slug: "pcb-design-review",
+    title: "PCB Design & Review",
     description:
-      "Low-power IoT devices, gateways, and cloud telemetry pipelines — from edge sensor to dashboard, end-to-end.",
+      "Structured schematic and layout review to reduce board re-spin risks and improve manufacturing readiness.",
+    icon: CircuitBoard,
+    highlights: ["Schematic review", "Power and grounding", "BOM and DFM/DFT"],
+    problemSolved:
+      "Prevent costly hardware iteration cycles caused by hidden power, signal integrity, and production-readiness issues.",
+    technologies: ["Altium/KiCad-ready workflows", "Power integrity review", "Noise and grounding analysis", "BOM risk checks"],
+    deliverables: ["Issue and risk list", "Layout improvement notes", "BOM recommendations", "Manufacturing readiness checklist"],
+    ctaLabel: "Request Project Quote",
+  },
+  {
+    slug: "iot-device-to-cloud",
+    title: "IoT Device-to-Cloud Solutions",
+    description:
+      "End-to-end IoT implementation from firmware and protocol design to dashboard telemetry and OTA planning.",
     icon: Radio,
-    highlights: ["Low-power edge devices", "MQTT / LoRaWAN / BLE", "Fleet & OTA management"],
+    highlights: ["MQTT / HTTP", "Data logging", "OTA and fleet management"],
+    problemSolved:
+      "Connect devices reliably to cloud systems with clear visibility, maintainability, and secure update pathways.",
+    technologies: ["MQTT", "HTTP", "Dashboards", "Data pipelines", "OTA strategy", "Device fleet controls"],
+    deliverables: ["Firmware communication layer", "Cloud data model", "Dashboard baseline", "Device management plan"],
+    ctaLabel: "Send Requirement",
   },
   {
-    slug: "saas-development",
-    title: "SaaS Development",
+    slug: "ble-esp32-stm32-nrf",
+    title: "BLE / ESP32 / STM32 / nRF Development",
     description:
-      "End-to-end SaaS products engineered for multi-tenancy, billing, and enterprise scale from day one.",
-    icon: Layers,
-    highlights: ["Multi-tenant architecture", "Billing & auth", "Admin dashboards"],
+      "Focused wireless and MCU engineering support for BLE communication, GATT design, and low-power optimization.",
+    icon: Wrench,
+    highlights: ["BLE central/peripheral", "GATT profile design", "Low-power debugging"],
+    problemSolved:
+      "Resolve flaky BLE performance, integration blockers, and device battery-life issues in product-critical phases.",
+    technologies: ["BLE", "GATT", "ESP32", "STM32", "nRF52/nRF52840", "Mobile integration support"],
+    deliverables: ["Firmware communication modules", "Integration notes", "Power profile recommendations", "Debug findings"],
+    ctaLabel: "Book Free Technical Review",
   },
   {
-    slug: "cloud-infrastructure",
-    title: "Cloud Infrastructure",
+    slug: "ai-automation-saas",
+    title: "AI Automation & SaaS Solutions",
     description:
-      "Resilient cloud platforms on AWS, GCP and Azure with infrastructure-as-code, observability, and cost control.",
-    icon: Cloud,
-    highlights: ["AWS / GCP / Azure", "Terraform & IaC", "Kubernetes"],
+      "Business-focused AI workflows, assistants, dashboards, and SaaS MVPs that reduce repetitive operations.",
+    icon: BrainCircuit,
+    highlights: ["AI workflow automation", "SaaS MVP delivery", "Internal business tools"],
+    problemSolved:
+      "Replace manual, repetitive workflows with measurable automation that improves response time and team throughput.",
+    technologies: ["Next.js", "Python", "FastAPI/Node.js", "LLM integrations", "Automation workflows", "PostgreSQL/SQLite"],
+    deliverables: ["Automation architecture", "Dashboards", "AI assistant flows", "Admin and reporting tools"],
+    ctaLabel: "Request Project Quote",
   },
   {
-    slug: "web-development",
-    title: "Web Development",
+    slug: "web-mobile-cloud",
+    title: "Web, Mobile & Cloud Development",
     description:
-      "High-performance web apps and marketing sites built with Next.js, edge runtimes, and modern UX.",
-    icon: Code2,
-    highlights: ["Next.js / React", "Edge & SSR", "Design systems"],
+      "Reliable software delivery for websites, business applications, mobile apps, APIs, and cloud dashboards.",
+    icon: Code,
+    highlights: ["Web and mobile apps", "API and admin panels", "Cloud dashboards"],
+    problemSolved:
+      "Move from fragmented tools to a cohesive product stack that supports operations, reporting, and customer workflows.",
+    technologies: ["React/Next.js", "Node.js/FastAPI", "REST APIs", "Cloud hosting", "Admin panels", "Mobile app integration"],
+    deliverables: ["Application modules", "API documentation", "Deployment setup", "Operational dashboard"],
+    ctaLabel: "Send Requirement",
   },
   {
-    slug: "mobile-app-development",
-    title: "Mobile App Development",
+    slug: "school-hospital-business-automation",
+    title: "School, Hospital & Business Automation",
     description:
-      "Native and cross-platform mobile applications optimized for performance, offline-first UX, and store scale.",
-    icon: Smartphone,
-    highlights: ["iOS & Android", "React Native / Flutter", "Offline-first"],
-  },
-  {
-    slug: "api-systems",
-    title: "API Systems",
-    description:
-      "Robust public and internal APIs — REST, GraphQL, and event-driven — built for high throughput and clean DX.",
-    icon: Plug,
-    highlights: ["REST & GraphQL", "Event-driven", "Developer portals"],
-  },
-  {
-    slug: "automation-tools",
-    title: "Automation Tools",
-    description:
-      "Internal automations, workflow engines, and AI copilots that compress operational overhead.",
-    icon: Workflow,
-    highlights: ["Workflow engines", "AI copilots", "Integrations"],
-  },
-  {
-    slug: "technical-consulting",
-    title: "Technical Consulting",
-    description:
-      "Architecture reviews, hardware/software roadmaps, and CTO-level engagements to de-risk critical decisions.",
-    icon: Sparkles,
-    highlights: ["Architecture audits", "Hardware + software roadmaps", "Fractional CTO"],
+      "Automation systems tailored for schools, clinics, hospitals, and local businesses with practical execution timelines.",
+    icon: Hospital,
+    highlights: ["Student/parent communication", "Hospital queue systems", "Business notifications"],
+    problemSolved:
+      "Replace manual follow-ups and disconnected operational workflows with integrated systems and clear process visibility.",
+    technologies: ["Workflow automation", "WhatsApp and email notifications", "Admin dashboards", "Cloud reporting", "Role-based access"],
+    deliverables: ["Process design blueprint", "Automation modules", "Staff onboarding notes", "Reporting and alert setup"],
+    ctaLabel: "WhatsApp Bluetrace",
   },
 ];

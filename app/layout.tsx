@@ -83,8 +83,6 @@ const orgJsonLd = {
   logo: `${siteConfig.url}/logo.svg`,
   description: siteConfig.description,
   foundingDate: siteConfig.legal.incorporationDate,
-  taxID: siteConfig.legal.pan,
-  identifier: siteConfig.legal.cin,
   founder: {
     "@type": "Person",
     name: siteConfig.founder.name,
