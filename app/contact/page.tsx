@@ -4,12 +4,13 @@ import { PageHeader } from "@/components/PageHeader";
 import { GlassCard } from "@/components/GlassCard";
 import { MotionReveal } from "@/components/MotionReveal";
 import { LocationMap } from "@/components/LocationMap";
+import { LeadInquiryForm } from "@/components/LeadInquiryForm";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Bluetrace Technologies. We respond to inquiries within one business day.",
+    "Contact Bluetrace Technologies Private Limited for embedded firmware, PCB review, IoT development, AI automation, and software engineering inquiries.",
   alternates: { canonical: "/contact" },
 };
 
@@ -35,10 +36,10 @@ export default function ContactPage() {
         eyebrow="Contact"
         title={
           <>
-            Talk to <span className="gradient-text">Bluetrace</span>
+            Send your <span className="gradient-text">project requirement</span>
           </>
         }
-        description="Tell us about your project, your roadmap, or a system that needs scale. We respond within one business day."
+        description="Share project scope, budget, and timeline. We reply with practical next steps for firmware, PCB, IoT, automation, or software delivery."
       />
 
       <section className="section pt-0">
@@ -46,7 +47,7 @@ export default function ContactPage() {
           <div className="lg:col-span-5">
             <h2 className="font-display text-2xl font-bold text-white">Direct channels</h2>
             <p className="mt-3 text-sm text-white/65">
-              Email is the fastest way to reach us. Choose the inbox that fits your inquiry.
+              For fastest response, submit the inquiry form and also WhatsApp key files to our primary project number.
             </p>
 
             <div className="mt-6 space-y-4">
@@ -91,44 +92,13 @@ export default function ContactPage() {
 
           <div className="lg:col-span-7">
             <GlassCard className="p-6 md:p-8" hover={false}>
-              <h2 className="font-display text-2xl font-bold text-white">Project brief</h2>
+              <h2 className="font-display text-2xl font-bold text-white">Professional inquiry form</h2>
               <p className="mt-2 text-sm text-white/60">
-                Drop a few details and we&apos;ll respond with next steps.
+                Fields are structured for technical scoping across embedded, IoT, automation, and software projects.
               </p>
-              <form
-                action={`mailto:${siteConfig.emails.primary}`}
-                method="post"
-                encType="text/plain"
-                className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2"
-              >
-                <Field label="Full name" name="name" required />
-                <Field label="Work email" type="email" name="email" required />
-                <Field label="Company" name="company" className="md:col-span-2" />
-                <Field label="Budget (optional)" name="budget" className="md:col-span-2" />
-                <div className="md:col-span-2">
-                  <label className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
-                    Project details
-                  </label>
-                  <textarea
-                    name="message"
-                    rows={5}
-                    required
-                    className="mt-2 w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-white/30 focus:outline-none focus:ring-2 focus:ring-brand-cyan/40"
-                    placeholder="Tell us about goals, timelines and any constraints…"
-                  />
-                </div>
-                <div className="md:col-span-2 flex items-center justify-between gap-3">
-                  <p className="text-xs text-white/50">
-                    Submitting opens your email client. Prefer direct?{" "}
-                    <a className="underline hover:text-white" href={`mailto:${siteConfig.emails.primary}`}>
-                      {siteConfig.emails.primary}
-                    </a>
-                  </p>
-                  <button type="submit" className="btn-primary">
-                    Send message
-                  </button>
-                </div>
-              </form>
+              <div className="mt-6">
+                <LeadInquiryForm />
+              </div>
             </GlassCard>
           </div>
         </div>
@@ -142,33 +112,5 @@ export default function ContactPage() {
         </div>
       </section>
     </>
-  );
-}
-
-function Field({
-  label,
-  name,
-  type = "text",
-  required,
-  className = "",
-}: {
-  label: string;
-  name: string;
-  type?: string;
-  required?: boolean;
-  className?: string;
-}) {
-  return (
-    <div className={className}>
-      <label className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
-        {label}
-      </label>
-      <input
-        type={type}
-        name={name}
-        required={required}
-        className="mt-2 w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-white/30 focus:outline-none focus:ring-2 focus:ring-brand-cyan/40"
-      />
-    </div>
   );
 }

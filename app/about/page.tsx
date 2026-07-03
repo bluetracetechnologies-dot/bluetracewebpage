@@ -1,24 +1,24 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
-import { Vision } from "@/components/sections/Vision";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { ContactCTA } from "@/components/sections/ContactCTA";
 import { GlassCard } from "@/components/GlassCard";
 import { MotionReveal } from "@/components/MotionReveal";
 import { siteConfig } from "@/lib/site";
+import { proofPoints } from "@/lib/lead";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Bluetrace Technologies is an engineering-first company building AI platforms, embedded electronics, IoT infrastructure and scalable digital products for modern businesses and startups.",
+    "About Bluetrace Technologies Private Limited, an engineering and technology company focused on embedded systems, IoT, firmware, PCB, automation, and software solutions.",
   alternates: { canonical: "/about" },
 };
 
 const stats = [
   { k: "Founded", v: String(siteConfig.legal.foundingYear) },
   { k: "HQ", v: "Parbhani · India" },
-  { k: "Focus", v: "AI · Embedded · IoT" },
-  { k: "Engagements", v: "Senior-only teams" },
+  { k: "Focus", v: "Embedded · IoT · PCB · Automation" },
+  { k: "Delivery", v: "Prototype to deployment" },
 ];
 
 export default function AboutPage() {
@@ -28,10 +28,10 @@ export default function AboutPage() {
         eyebrow="About Bluetrace"
         title={
           <>
-            An engineering-first technology company.
+            Engineering partner for connected products and automation systems.
           </>
         }
-        description="Bluetrace Technologies Private Limited is on a mission to build the intelligent digital infrastructure that powers the next generation of products."
+        description="Bluetrace Technologies Private Limited helps startups, schools, hospitals, and businesses ship reliable firmware, PCB, IoT, and software solutions."
       />
 
       <section className="section pt-0">
@@ -54,40 +54,39 @@ export default function AboutPage() {
           <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2">
             <MotionReveal>
               <h2 className="font-display text-2xl font-bold text-white md:text-3xl">
-                Who we are
+                Company overview
               </h2>
               <p className="mt-4 text-white/70">
-                Bluetrace is a small, deeply technical team focused on building
-                durable systems — across software and hardware. We pair the
-                discipline of enterprise engineering with the speed of a modern
-                startup, shipping AI platforms, embedded electronics, IoT
-                infrastructure and digital products that scale.
+                Bluetrace Technologies Private Limited is an engineering and technology
+                company focused on embedded systems, firmware, PCB design review,
+                IoT device-to-cloud integration, and business automation software.
               </p>
               <p className="mt-4 text-white/70">
-                We work alongside founders, product leaders and engineering
-                executives — owning architecture, delivery and operations end-to-end.
+                Our approach combines practical hardware and firmware execution with
+                scalable software implementation, making us a strong fit for both
+                international product teams and Indian institutions.
               </p>
             </MotionReveal>
             <MotionReveal delay={0.05}>
               <h2 className="font-display text-2xl font-bold text-white md:text-3xl">
-                What we believe
+                Engineering approach
               </h2>
               <ul className="mt-4 space-y-3 text-white/70">
                 <li className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-brand-cyan" />
-                  Software is infrastructure — design it for ten years, not ten weeks.
+                  Practical engineering decisions over flashy but fragile implementations.
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-brand-electric" />
-                  AI is a substrate, not a feature — build it into the core of the system.
+                  Hardware + firmware + software capability under one execution flow.
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-brand-purple" />
-                  Small senior teams ship better systems than large generalist ones.
+                  Startup-friendly delivery with realistic timelines and scope control.
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-brand-cyan" />
-                  Quality compounds — boring fundamentals win in the long run.
+                  Support from prototype and debugging through deployment readiness.
                 </li>
               </ul>
             </MotionReveal>
@@ -96,32 +95,29 @@ export default function AboutPage() {
           <div className="mt-14">
             <MotionReveal>
               <h2 className="font-display text-2xl font-bold text-white md:text-3xl">
-                Leadership
+                Credentials area
+              </h2>
+              <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2">
+                {proofPoints.map((item, i) => (
+                  <MotionReveal key={item} delay={i * 0.05}>
+                    <GlassCard className="p-6">
+                      <p className="text-sm text-white/75">{item}</p>
+                    </GlassCard>
+                  </MotionReveal>
+                ))}
+              </div>
+            </MotionReveal>
+
+            <MotionReveal delay={0.06}>
+              <h2 className="mt-14 font-display text-2xl font-bold text-white md:text-3xl">
+                Founder and leadership
               </h2>
               <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-3">
                 {siteConfig.directors.map((d, i) => (
                   <MotionReveal key={d.name} delay={i * 0.05}>
                     <GlassCard className="p-6">
-                      <div className="flex items-center gap-4">
-                        <div className="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-gradient-to-br from-brand-electric/30 to-brand-purple/30 ring-1 ring-white/10">
-                          <span className="font-display text-base font-bold text-white">
-                            {d.name
-                              .split(" ")
-                              .map((n) => n[0])
-                              .join("")
-                              .replace(/\./g, "")
-                              .slice(0, 2)}
-                          </span>
-                        </div>
-                        <div>
-                          <p className="font-display text-base font-semibold text-white">
-                            {d.name}
-                          </p>
-                          <p className="text-xs uppercase tracking-[0.18em] text-white/50">
-                            {d.role}
-                          </p>
-                        </div>
-                      </div>
+                      <p className="font-display text-base font-semibold text-white">{d.name}</p>
+                      <p className="mt-1 text-xs uppercase tracking-[0.18em] text-white/50">{d.role}</p>
                     </GlassCard>
                   </MotionReveal>
                 ))}
@@ -131,7 +127,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Vision />
       <WhyChooseUs />
       <ContactCTA />
     </>
