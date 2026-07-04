@@ -13,15 +13,20 @@ export function Logo({
 }: LogoProps) {
   const sizeClass =
     context === "footer"
-      ? "h-14 w-auto md:h-16"
-      : "h-9 w-auto md:h-11";
+      ? "h-14 w-auto max-w-[280px] md:h-16"
+      : "h-10 w-auto max-w-[240px] md:h-12";
+
+  const wrapperClass =
+    context === "footer"
+      ? "px-0 py-0"
+      : "rounded-lg border border-white/10 bg-black/20 px-2 py-1 backdrop-blur-sm";
 
   const svgSrc =
-    surface === "dark" ? "/logo-horizontal.svg" : "/logo-horizontal-light.svg";
+    surface === "dark" ? "/logo.svg" : "/logo-light.svg";
   const pngSrc =
     surface === "dark"
-      ? "/logo-horizontal.png"
-      : "/logo-horizontal-light.png";
+      ? "/logo-horizontal-light.png"
+      : "/logo-horizontal.png";
 
   return (
     <Link
@@ -29,14 +34,14 @@ export function Logo({
       aria-label="BlueTrace Technologies"
       className={`group inline-flex items-center ${className}`}
     >
-      <span className="inline-flex items-center transition-transform duration-300 group-hover:scale-[1.01]">
+      <span className={`inline-flex items-center transition-transform duration-300 group-hover:scale-[1.01] ${wrapperClass}`}>
         <picture>
           <source srcSet={svgSrc} type="image/svg+xml" />
           <source srcSet={pngSrc} type="image/png" />
           <img
             src="/logo-actual.png"
             alt="BlueTrace Technologies"
-            className={`${sizeClass} w-auto object-contain`}
+            className={`${sizeClass} block object-contain`}
             loading="eager"
             decoding="async"
           />
