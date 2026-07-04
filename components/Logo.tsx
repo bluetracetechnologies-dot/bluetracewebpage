@@ -3,30 +3,21 @@ import Link from "next/link";
 type LogoProps = {
   className?: string;
   context?: "navbar" | "footer";
-  surface?: "dark" | "light";
 };
 
 export function Logo({
   className = "",
   context = "navbar",
-  surface = "dark",
 }: LogoProps) {
   const sizeClass =
     context === "footer"
-      ? "h-14 w-auto max-w-[280px] md:h-16"
-      : "h-10 w-auto max-w-[240px] md:h-12";
+      ? "h-16 w-auto max-w-[320px] md:h-20"
+      : "h-12 w-auto max-w-[260px] md:h-14";
 
   const wrapperClass =
     context === "footer"
       ? "px-0 py-0"
-      : "rounded-lg border border-white/10 bg-black/20 px-2 py-1 backdrop-blur-sm";
-
-  const svgSrc =
-    surface === "dark" ? "/logo.svg" : "/logo-light.svg";
-  const pngSrc =
-    surface === "dark"
-      ? "/logo-horizontal-light.png"
-      : "/logo-horizontal.png";
+      : "rounded-lg border border-white/15 bg-white/90 px-2 py-1 shadow-[0_10px_30px_-20px_rgba(255,255,255,0.85)]";
 
   return (
     <Link
@@ -35,17 +26,13 @@ export function Logo({
       className={`group inline-flex items-center ${className}`}
     >
       <span className={`inline-flex items-center transition-transform duration-300 group-hover:scale-[1.01] ${wrapperClass}`}>
-        <picture>
-          <source srcSet={svgSrc} type="image/svg+xml" />
-          <source srcSet={pngSrc} type="image/png" />
-          <img
-            src="/logo-actual.png"
-            alt="BlueTrace Technologies"
-            className={`${sizeClass} block object-contain`}
-            loading="eager"
-            decoding="async"
-          />
-        </picture>
+        <img
+          src="/logo-exact-transparent.png"
+          alt="BlueTrace Technologies"
+          className={`${sizeClass} block object-contain`}
+          loading="eager"
+          decoding="async"
+        />
       </span>
     </Link>
   );
