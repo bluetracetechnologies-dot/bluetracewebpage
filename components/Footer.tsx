@@ -42,7 +42,7 @@ export function Footer() {
       <div className="container-page py-16">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <Logo context="footer" surface="light" />
+            <Logo context="footer" />
             <p className="mt-5 max-w-md text-sm leading-relaxed text-white/60">
               {siteConfig.description}
             </p>
