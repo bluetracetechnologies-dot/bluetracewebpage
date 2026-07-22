@@ -4,7 +4,24 @@ import { useState } from "react";
 
 declare global {
   interface Window {
-    Razorpay?: any;
+    Razorpay?: new (options: {
+      key: string;
+      order_id: string;
+      amount: number;
+      currency: string;
+      name: string;
+      description: string;
+      theme?: { color?: string };
+      handler?: (response: {
+        razorpay_order_id: string;
+        razorpay_payment_id: string;
+        razorpay_signature: string;
+      }) => void | Promise<void>;
+      modal?: { ondismiss?: () => void };
+    }) => {
+      on: (event: string, callback: () => void) => void;
+      open: () => void;
+    };
   }
 }
 
@@ -45,6 +62,9 @@ export default function PayButton({ planId, planName, label, highlight }: Props)
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Payment setup failed.");
+      if (!window.Razorpay) {
+        throw new Error("Payment SDK unavailable. Refresh and try again.");
+      }
 
       const rzp = new window.Razorpay({
         key: data.keyId,
@@ -52,22 +72,24 @@ export default function PayButton({ planId, planName, label, highlight }: Props)
         amount: data.amount,
         currency: data.currency,
         name: "Bluetrace Technologies",
-        description: data.planName,
+        description: data.planName || planName,
         theme: { color: "#38bdf8" },
         handler: () => {
           setMsg(
             "Payment received — thank you! We'll contact you within 12 hours to start."
           );
+          setBusy(false);
         },
         modal: { ondismiss: () => setBusy(false) },
       });
-      rzp.on("payment.failed", () =>
-        setMsg("Payment failed or cancelled. You were not charged — try again.")
-      );
+      rzp.on("payment.failed", () => {
+        setMsg("Payment failed or cancelled. You were not charged — try again.");
+        setBusy(false);
+      });
       rzp.open();
-    } catch (e: any) {
-      setMsg(e.message || "Something went wrong.");
-    } finally {
+    } catch (e: unknown) {
+      const err = e instanceof Error ? e.message : "Something went wrong.";
+      setMsg(err);
       setBusy(false);
     }
   }

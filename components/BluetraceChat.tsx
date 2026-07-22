@@ -76,7 +76,10 @@ export default function BluetraceChat() {
         "details",
         `Lead captured by website chatbot. Need: ${final.need}. Budget: ${final.budget}. Contact: ${final.phone}.`
       );
-      await fetch("/api/inquiry", { method: "POST", body: fd });
+      const res = await fetch("/api/inquiry", { method: "POST", body: fd });
+      if (!res.ok) {
+        throw new Error("Lead API failed");
+      }
     } catch {
       /* lead still reaches you via WhatsApp handoff below */
     }

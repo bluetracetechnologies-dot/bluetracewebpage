@@ -23,7 +23,7 @@ export function EngineeringPackages() {
         <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {engineeringPackages.map((pkg, i) => (
             <MotionReveal key={pkg.slug} delay={i * 0.04}>
-              <div className="glass glass-hover h-full rounded-2xl p-6">
+              <div className="glass glass-hover flex h-full flex-col rounded-2xl p-6">
                 <h3 className="font-display text-xl font-semibold text-white">{pkg.title}</h3>
                 <p className="mt-2 text-sm font-semibold text-brand-cyan">{pkg.price}</p>
                 <ul className="mt-5 space-y-2 text-sm text-white/70">
@@ -34,8 +34,8 @@ export function EngineeringPackages() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/contact" className="btn-ghost mt-6 w-full justify-center">
-                  Request Project Quote <ArrowRight className="h-4 w-4" />
+                <Link href="/pricing" className="btn-ghost mt-auto w-full justify-center pt-6">
+                  View & buy packages <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </MotionReveal>

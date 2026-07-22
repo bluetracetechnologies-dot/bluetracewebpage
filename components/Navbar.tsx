@@ -34,7 +34,7 @@ export function Navbar() {
       }`}
     >
       <div className="container-page flex h-16 items-center justify-between md:h-20">
-        <Logo context="navbar" surface="dark" />
+        <Logo context="navbar" />
 
         <nav className="hidden items-center gap-1 md:flex">
           {siteConfig.nav.map((item) => {
