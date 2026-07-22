@@ -44,9 +44,10 @@ function loadRazorpay(): Promise<boolean> {
   });
 }
 
-export default function PayButton({ planId, planName, label, highlight }: Props) {
+export default function PayButton({ planId, planName, amountInr, label, highlight }: Props) {
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
+  const publicKeyId = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
 
   async function pay() {
     setBusy(true);
@@ -54,11 +55,18 @@ export default function PayButton({ planId, planName, label, highlight }: Props)
     try {
       const ok = await loadRazorpay();
       if (!ok) throw new Error("Could not load payment window. Check your connection.");
+      if (!publicKeyId) {
+        throw new Error("Razorpay public key is missing. Check NEXT_PUBLIC_RAZORPAY_KEY_ID.");
+      }
 
-      const res = await fetch("/api/razorpay/order", {
+      const res = await fetch("/api/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ planId }),
+        body: JSON.stringify({
+          amount: Math.max(100, Math.trunc(amountInr * 100)),
+          currency: "INR",
+          receipt: `${planId}-${Date.now()}`,
+        }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Payment setup failed.");
@@ -67,14 +75,25 @@ export default function PayButton({ planId, planName, label, highlight }: Props)
       }
 
       const rzp = new window.Razorpay({
-        key: data.keyId,
-        order_id: data.orderId,
+        key: publicKeyId,
+        order_id: data.order_id,
         amount: data.amount,
         currency: data.currency,
         name: "Bluetrace Technologies",
-        description: data.planName || planName,
+        description: planName,
         theme: { color: "#38bdf8" },
-        handler: () => {
+        handler: async (response) => {
+          const verifyRes = await fetch("/api/verify-payment", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(response),
+          });
+          const verify = await verifyRes.json().catch(() => ({}));
+
+          if (!verifyRes.ok || !verify.ok) {
+            throw new Error(verify.message || "Payment verification failed.");
+          }
+
           setMsg(
             "Payment received — thank you! We'll contact you within 12 hours to start."
           );
