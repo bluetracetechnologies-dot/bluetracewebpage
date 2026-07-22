@@ -154,6 +154,38 @@ export function Footer() {
           </p>
         </div>
 
+        <div className="mt-6 grid gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:grid-cols-2">
+          <div className="flex items-center gap-3">
+            <img
+              src="/compliance/startup-india-logo.png"
+              alt="Startup India certificate logo"
+              className="h-11 w-11 rounded-full border border-white/10 bg-white object-cover"
+            />
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/50">
+                Startup India
+              </p>
+              <p className="text-sm text-white/70">Certificate No. DIPP266429</p>
+              <p className="text-[11px] text-white/40">Recognized by DPIIT / #startupindia</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <img
+              src="/compliance/udyam-logo.png"
+              alt="Udyam registration certificate logo"
+              className="h-11 w-11 rounded-full border border-white/10 bg-white object-cover"
+            />
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/50">
+                Udyam Registration
+              </p>
+              <p className="text-sm text-white/70">UDYAM-MH-25-0077376</p>
+              <p className="text-[11px] text-white/40">Ministry of MSME certificate mark</p>
+            </div>
+          </div>
+        </div>
+
         {(siteConfig.legal.cin || siteConfig.legal.pan || siteConfig.legal.tan) && (
           <div className="mt-3 flex flex-col gap-1 text-[11px] text-white/40 md:flex-row md:flex-wrap md:items-center md:gap-x-4">
             {siteConfig.legal.cin ? (
